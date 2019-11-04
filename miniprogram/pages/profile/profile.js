@@ -7,13 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {}
   },
 
   // 获取用户信息并且保存到数据
   onGotUserInfo: function(event){
     wx.getSetting({
-      success: function (res) {
+      success: (res) => {
         if (res.authSetting['scope.userInfo']) {
           wx.showLoading({
             title: '资料插入中...',
@@ -23,6 +23,9 @@ Page({
             data: {},
             success: res => {
               console.log('[云函数] [login] user openid: ', res.result.openid)
+              this.setData({
+                userInfo: event.detail.userInfo
+              })
               // 插入数据
               db.collection('user').add({
                 data: {
@@ -36,6 +39,7 @@ Page({
                 wx.showToast({
                   title: '资料插入成功',
                 })
+                console.log(this.data.userInfo)
               }).catch(err => {
                 wx.hideLoading();
                 wx.showToast({
@@ -98,13 +102,13 @@ Page({
         // 插入数据
         db.collection('address').add({
           data: {
-            city: '深圳市',
-            detail: "粤海街道22号",
+            city: this.data.userInfo.city,
+            detail: "粤海街道",
             isDefault: true,
-            name: "李荣浩",
+            name: this.data.userInfo.nickName,
             phome: "13929747777",
-            province: "广东省",
-            region: "南山区",
+            province: this.data.userInfo.province,
+            region: '宝安区',
             userId: res.result.openid
           }
         }).then(res => {
