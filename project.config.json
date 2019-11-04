@@ -7,11 +7,12 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"autoAudits": false,
+		"nodeModules": true
 	},
 	"appid": "wxe76332ca8c17ad61",
-	"projectname": "Wx_Cloud",
-	"libVersion": "2.8.1",
+	"projectname": "movie-imooc",
+	"libVersion": "2.2.5",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -31,12 +32,27 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
+					"query": "movieid=30334073",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "profile",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
