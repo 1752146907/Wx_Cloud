@@ -1,0 +1,7 @@
+<!--miniprogram/pages/my/order/index.wxml-->
+<text>已付款</text>
+|
+<text>未付款</text>
+<view wx:for="{{10}}" wx:key="item" bindtap="handleOrder">
+订单{{item}}
+</view>

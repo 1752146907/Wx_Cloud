@@ -1,15 +1,23 @@
 {
   "pages": [
-    "pages/profile/profile",
+    "pages/my/my",
+    "pages/index/index",
     "pages/pay/pay",
     "pages/movie/movie",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/product/index",
+    "pages/my/order/submit",
+    "pages/my/order/index",
+    "pages/my/order/detail",
+    "pages/my/address/index", 
+    "pages/my/address/edit",
+    "pages/my/address/add"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E54847",
-    "navigationBarTitleText": "豆瓣movie",
+    "navigationBarTitleText": "我的小程序",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -17,13 +25,13 @@
     "selectedColor": "#E54847",
     "list": [
       {
-        "pagePath": "pages/movie/movie",
+        "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/film.png",
         "selectedIconPath": "images/film-actived.png"
       },
       {
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/profile.png",
         "selectedIconPath": "images/profile-actived.png"

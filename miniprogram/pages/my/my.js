@@ -1,4 +1,4 @@
-// pages/profile/profile.js
+ 
 const db = wx.cloud.database(); // 初始化数据库
 
 Page({
@@ -8,8 +8,20 @@ Page({
    */
   data: {
     userInfo: {}
-  },
+  }, 
 
+  // 我的订单
+  handleOrder: function() {
+    wx.navigateTo({
+      url: '/pages/my/order/index'
+    })
+  },
+  // 地址列表
+  handleAddress: function () {
+    wx.navigateTo({
+      url: '/pages/my/address/index'
+    })
+  },
   // 获取用户信息并且保存到数据
   onGotUserInfo: function(event){
     wx.getSetting({

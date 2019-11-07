@@ -1,0 +1,5 @@
+<!--miniprogram/pages/product/index.wxml-->
+<view>商品id: {{product[0].id}}</view>
+<view>商品名称: {{product[0].title}}</view>
+<view>商品价格: {{product[0].price}}</view>
+<button bindtap="handleSubmit">立即购买</button>
