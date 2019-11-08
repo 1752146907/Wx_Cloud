@@ -14,7 +14,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.onProductList()
+    this.onProductList();
+
+    wx.cloud.callFunction({
+      name: 'logistics',
+      data: {
+        text: 'TT6600236034657'
+        // text: 'TT6600236034657'
+      },
+      success: res => { 
+        console.log(res)
+      },
+      fail: err => {
+        console.error(err)
+      }
+    })
   },
   // 跳转商品详情
   handleProductDetail: function (e) { 
