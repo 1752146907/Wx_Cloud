@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/my/logistics/index",
     "pages/index/index",
     "pages/my/my",
     "pages/pay/pay",
@@ -9,7 +10,7 @@
     "pages/my/order/submit",
     "pages/my/order/index",
     "pages/my/order/detail",
-    "pages/my/address/index", 
+    "pages/my/address/index",
     "pages/my/address/edit",
     "pages/my/address/add"
   ],

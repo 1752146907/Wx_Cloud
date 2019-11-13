@@ -7,20 +7,67 @@ Page({
    * 页面的初始数据
    */
   data: {
-    productList: []
-  },
-
+    productList: [],
+    aaa: {}
+  },  
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.onProductList();
+  onLoad: function (options) { 
+  wx.cloud.callFunction({
+      name: 'kuaidiniao',
+      data: {
+        // text: '4300270032851'
+        text: 'TT6600236034657'
+      },
+      success: res => {  
+        console.log(res) 
+      },
+      fail: err => {
+        console.error(err)
+      }
+    })
 
+    // this.onProductList();
+
+    // wx.cloud.callFunction({
+    //   name: 'kuaidi',
+    //   data: {
+    //     // text: '4300270032851'
+    //     text: 'TT6600236034657'
+    //   },
+    //   success: res => { 
+    //     let comCode = JSON.parse(res.result).auto[0].comCode
+    //     console.log(comCode)
+    //     this.handleLogistics(comCode);
+    //   },
+    //   fail: err => {
+    //     console.error(err)
+    //   }
+    // })
+
+    // 快递鸟
+    // wx.cloud.callFunction({
+    //   name: 'kuaidiniao',
+    //   data: {
+    //     expCode: 'TT6600236034657',
+    //     expNo: 'HHTT'
+    //   },
+    //   success: res => {
+    //     console.log(res.result)
+    //   },
+    //   fail: err => {
+    //     console.error(err)
+    //   }
+    // })
+  },
+  // 查看物流详细
+  handleLogistics: function (comCode) {
     wx.cloud.callFunction({
       name: 'logistics',
       data: {
-        text: 'TT6600236034657'
-        // text: 'TT6600236034657'
+        nu: '4300270032851',
+        com: comCode
       },
       success: res => { 
         console.log(res)

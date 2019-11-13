@@ -1,2 +1,5 @@
 <!--miniprogram/pages/index/index.wxml-->
-<view wx:for="{{productList}}" wx:key="item.id" bindtap="handleProductDetail" data-id="{{item.id}}">{{item.title}}</view>
+<view wx:for="{{aaa}}" wx:key="item.time" bindtap="handleProductDetail" data-id="{{item.time}}">{{item.context}}</view> 
+ 
+
+<!-- <web-view src="http://www.kdniao.com/JSInvoke/MSearchResult.aspx?expCode=HHTT&expNo=TT6600236034657&backUrl=http://rongzhi.fun/?KDCode=HHTT&KDpNo=TT6600236034657&color=rgb(46,114,251)"></web-view> -->

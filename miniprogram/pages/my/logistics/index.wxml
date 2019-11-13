@@ -1,0 +1,8 @@
+<!--miniprogram/pages/logistics/index.wxml-->
+<view>物流：{{logisticsInfo.data.com}}</view>
+<view>明细：</view>
+<view wx:for="{{logisticsInfo.data.data}}" wx:key="item.time" bindtap="handleProductDetail" data-id="{{item.time}}">
+  <view>{{item.time}}</view>
+  {{item.context}}
+  <view>-------------------------</view>
+</view> 
