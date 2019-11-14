@@ -1,4 +1,5 @@
 
+
 const db = wx.cloud.database(); // 初始化数据库
 
 Page({
@@ -7,75 +8,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    productList: [],
-    aaa: {}
+    productList: [] 
   },  
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) { 
-  wx.cloud.callFunction({
-      name: 'kuaidiniao',
-      data: {
-        // text: '4300270032851'
-        text: 'TT6600236034657'
-      },
-      success: res => {  
-        console.log(res) 
-      },
-      fail: err => {
-        console.error(err)
-      }
-    })
-
-    // this.onProductList();
-
-    // wx.cloud.callFunction({
-    //   name: 'kuaidi',
-    //   data: {
-    //     // text: '4300270032851'
-    //     text: 'TT6600236034657'
-    //   },
-    //   success: res => { 
-    //     let comCode = JSON.parse(res.result).auto[0].comCode
-    //     console.log(comCode)
-    //     this.handleLogistics(comCode);
-    //   },
-    //   fail: err => {
-    //     console.error(err)
-    //   }
-    // })
-
-    // 快递鸟
-    // wx.cloud.callFunction({
-    //   name: 'kuaidiniao',
-    //   data: {
-    //     expCode: 'TT6600236034657',
-    //     expNo: 'HHTT'
-    //   },
-    //   success: res => {
-    //     console.log(res.result)
-    //   },
-    //   fail: err => {
-    //     console.error(err)
-    //   }
-    // })
-  },
-  // 查看物流详细
-  handleLogistics: function (comCode) {
-    wx.cloud.callFunction({
-      name: 'logistics',
-      data: {
-        nu: '4300270032851',
-        com: comCode
-      },
-      success: res => { 
-        console.log(res)
-      },
-      fail: err => {
-        console.error(err)
-      }
-    })
+  onLoad: function (options) {  
+    this.onProductList(); 
+    this.handleLoad();
+  }, 
+  handleLoad() { 
   },
   // 跳转商品详情
   handleProductDetail: function (e) { 
@@ -86,7 +28,7 @@ Page({
   // 查询商品列表
   onProductList: function () {
     db.collection('product').get({
-      success: res => {
+      success: res => { 
         this.setData({
           productList: res.data
         }); 

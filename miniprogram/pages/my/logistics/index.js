@@ -1,4 +1,4 @@
-
+import { hexMD5 } from "../../../utils/md5.js"; // 初始化MD5
 const db = wx.cloud.database(); // 初始化数据库
 
 Page({
@@ -26,16 +26,42 @@ Page({
         text: this.data.postid
       },
       success: res => { 
-        let comCode = JSON.parse(res.result).auto[0].comCode;
+        let comCode = JSON.parse(res.result).auto[0].comCode; 
 
-        this.handleLogisticsInfo(comCode, this.data.postid)
+        // 获取物流信息
+        this.handleGetLogisticsInfo(comCode, this.data.postid)
       },
       fail: err => {
         console.error(err)
       }
     })
   },
-  // 获取物流信息
+  // 获取物流信息==快递100
+  handleGetLogisticsInfo: function (comCode, postid) { 
+    // 签名加密，按param + key + customer 的顺序进行MD5加密（注意加密后字符串一定要转大写）
+    let sign = '{"com":"' + comCode + '","num":"' + postid + '"}TZqfKGNR5587A7F2FF45824CDBC385477FA8EF252ABD'; 
+
+    wx.request({
+      url: "https://poll.kuaidi100.com/poll/query.do",
+      data: {
+        customer: 'A7F2FF45824CDBC385477FA8EF252ABD',     //公司编号
+        sign: hexMD5(sign).toUpperCase(),     //签名
+        param: {
+          com: comCode,
+          num: postid
+        }
+      },
+      success: (res) => {
+        this.setData({
+          logisticsInfo: res
+        }) 
+      },
+      fail: err => {
+        console.error(err)
+      }
+    })
+  },
+  // 获取物流信息==盗取官网Cookie
   handleLogisticsInfo: function (comCode, postid) {
     wx.request({
       url: "https://www.kuaidi100.com/query?type=" + comCode + "&postid=" + postid +"&temp=0.8445075342502237&phone=",

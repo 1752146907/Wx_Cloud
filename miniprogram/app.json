@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/my/logistics/index",
     "pages/index/index",
+    "pages/my/logistics/index",
     "pages/my/my",
     "pages/pay/pay",
     "pages/movie/movie",

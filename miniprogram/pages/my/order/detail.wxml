@@ -1,3 +1,4 @@
 
 <text>详情详情......</text>
+<view bindtap="handleKuaidi">查看物流</view>
 <button>立即付款</button>
