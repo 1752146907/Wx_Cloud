@@ -58,8 +58,8 @@
 				},
 				{
 					"id": 2,
-					"name": "order/submit",
-					"pathName": "pages/my/order/submit",
+					"name": "address/index",
+					"pathName": "pages/my/address/index",
 					"query": "",
 					"scene": null
 				},

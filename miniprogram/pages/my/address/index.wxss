@@ -1,1 +1,75 @@
-/* miniprogram/pages/my/address/index.wxss */
+page{
+  background: #f7f7f7;
+  padding-bottom: 100rpx;
+  border-top: 1rpx solid #f7f7f7
+}
+
+.addres{
+
+}
+.addres-list{
+  background: #ffffff;
+  border-bottom: 20rpx solid #f7f7f7
+}
+.addres-header{
+  padding: 20rpx;
+  border-bottom: 1px solid #f6f6f9
+}
+.addres-header-title{
+  font-size: 34rpx;
+  color: #444; 
+}
+.addres-header-title text{
+  margin-left: 10rpx;
+}
+.addres-header-footer{
+  font-size: 26rpx;
+  color: #777;
+  margin-top: 6rpx;  
+}
+.addres-footer{
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #333; 
+}
+.address-left{
+  flex: 1; 
+}
+.address-left .title{
+  position: relative;
+  top: -7rpx;
+}
+.address-right{
+  flex: 1;
+}
+.addres-footer .title{
+  margin-left: 10rpx;
+  position: relative;
+  top: -7rpx;
+}
+.address-right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end
+}
+.address-right .title{ 
+  position: relative;
+  top: -2rpx;
+}
+.address-right-item{
+  margin-left: 20rpx;
+}
+
+
+.add-addres{
+  position: fixed;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background: linear-gradient(to right, #F75148 0, #F75148 100%);
+  color: #fff;
+  text-align: center;
+  line-height: 92rpx; 
+}

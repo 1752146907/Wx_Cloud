@@ -1,1 +1,10 @@
-/* miniprogram/pages/my/address/edit.wxss */
+ 
+.button-sever{
+  width: 90%;
+  text-align: center; 
+  color: white; 
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  margin: 100rpx auto 0rpx auto;
+  background: linear-gradient(to right, #F75148 0, #F75148 100%); 
+}
