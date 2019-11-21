@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    product: []
+    product: [],
+    shopNumber: 1,
+    price: 0,
+    showProductSku: false 
   },
 
   /**
@@ -21,23 +24,64 @@ Page({
       id: id
     }).get({
       success: res => {
+        if (res.data[0].type == 2) {
+          res.data[0].sku[0].spec_attr.map((data, index) => {
+            if (index == 0) {
+              data.active = true;
+            } else {
+              data.active = false;
+            }
+          }); 
+        }
         this.setData({
-          product: res.data
+          product: res.data,
+          price: res.data[0].price
         }); 
+        console.log(this.data.product)
       },
       fail: err => {
         wx.showToast({
           icon: 'none',
           title: '查询记录失败'
-        })
-        console.error(err)
+        }) 
       }
+    })
+  },
+  // 切换规格
+  handleTabSku: function (e) { 
+    let val = e.currentTarget.dataset.index; 
+    this.data.product[0].sku[0].spec_attr.map((data, index) => {
+      if (index == val) {
+        data.active = true;
+      } else {
+        data.active = false;
+      }
+    })
+    this.setData({
+      product: this.data.product,
+      price: this.data.product[0].sku[0].spec_attr[val].price
     })
   },
   // 提交
   handleSubmit: function() {
     wx.navigateTo({
       url: '/pages/my/order/submit'
+    })
+  },
+  // 返回首页
+  handleHome() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  // 立即购买
+  handlesShop() {
+    this.onTabProductSku() 
+  },
+  // 购买弹框
+  onTabProductSku() {
+    this.setData({
+      showProductSku: !this.data.showProductSku
     })
   },
 

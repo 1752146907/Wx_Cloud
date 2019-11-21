@@ -1,3 +1,59 @@
-<view>选择收货地址</view>
+ 
+<!-- 快递配送：配送地址 -->
+<view class="flow-delivery">
+  <van-icon class="detail-location" name="location-o" />
+  <view class="detail-content">
+    <block>
+      <view class="detail-content-title">
+        <text class="detail-content-title-name">唐玄宗</text>
+        <text class="detail-content-title-phone">13800138000</text>
+      </view>
+      <view class="detail-content-describe">
+        北京市东城区朱雀大道
+      </view>
+    </block>
+    <!-- <block>
+      <view class="detail-content-describe dis-flex">
+        <text class="col-6">请选择配送地址</text>
+      </view>
+    </block> -->
+  </view>
+  <view class="detail-arrow">
+    <van-icon name="arrow" />
+  </view>
+</view>
+
+
+<!-- 商品列表 -->
+<view>
+  <view class="list">
+    <view class="list-box">
+      <view class="list-left">
+        <image mode="scaleToFill" src="http://47.112.111.19:8082/poster/2019103027760197421051.jpg"></image>
+      </view>
+      <view class="list-right">
+        <view class="list-right-title">娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈娃哈哈</view>
+        <text class="list-right-text">红色</text>
+        <view class="list-right-sku">
+          <text class="cont">￥33.88</text>
+          <text class="small">×2</text>
+        </view>
+      </view>
+    </view>
+    <view class="list-footer">
+      共2件商品，合计：<text class="list-footer-money">￥33.88</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- 提交订单 -->
+<view class="flow-footer">
+  <view class="flow-footer-price">合计：<text>￥33.88</text></view>
+  <text class="flow-footer-money">提交订单</text>
+</view>
+
+
+<!-- <view>选择收货地址</view>
 <view>商品信息</view>
-<button>立即支付</button>
+<button>立即支付</button> -->

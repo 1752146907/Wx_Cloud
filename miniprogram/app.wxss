@@ -5,3 +5,18 @@
   align-items: center;
   box-sizing: border-box;
 } 
+
+.line-clamp-1 {
+  word-wrap: normal; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  
+  -webkit-box-orient: vertical;
+}

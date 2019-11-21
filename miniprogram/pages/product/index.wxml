@@ -1,5 +1,79 @@
 <!--miniprogram/pages/product/index.wxml-->
-<view>商品id: {{product[0].id}}</view>
+<!-- <view>商品id: {{product[0].id}}</view>
 <view>商品名称: {{product[0].title}}</view>
 <view>商品价格: {{product[0].price}}</view>
-<button bindtap="handleSubmit">立即购买</button>
+<button bindtap="handleSubmit">立即购买</button> -->
+
+
+
+<view class="container">
+  <swiper class="swiper" indicator-active-color="#E54847" indicator-dots="true" autoplay="true" interval="5000" duration="500">
+    <block wx:for="{{product[0].image}}" wx:key="index">
+      <swiper-item>
+        <image class="slide-image" mode="aspectFill" src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="goods-header">
+    <view class="goods-title line-clamp-2">{{product[0].title}}</view>
+    <view class="goods-price">
+      ￥{{price}}
+      <text class="goods-sort">库存:{{product[0].sort}}</text>
+    </view>
+  </view>
+
+  <view class="goods-content">
+    <block wx:for="{{product[0].content}}" wx:key="index">
+      <image src="{{item}}" mode="widthFix"></image>
+    </block>
+  </view>
+
+  <van-goods-action>
+    <van-goods-action-icon icon="home-o" text="首页" bind:click="handleHome" />
+    <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" bind:click="handleChat" />
+    <van-goods-action-button text="立即购买" bind:click="handlesShop">
+      <view>
+        gnfdjglnsdjngjsl
+      </view>
+    </van-goods-action-button>
+  </van-goods-action>
+
+  <zan-popup show="{{ showProductSku }}" position="bottom" bind:close="onTabProductSku"> 
+    <view class="trade" catchtouchmove="ture">
+      <view class="trade-header">
+        <image class="trade-header-left" src="http://47.112.111.19:8082/poster/2019103111577298582409.jpg"></image>
+        <view class="trade-header-right">
+          <view class="title line-clamp-2">{{product[0].title}}</view>
+          <view class="sort">库存:{{product[0].sort}}件</view>
+          <view class="price">¥{{price}}</view>
+        </view>
+      </view>
+      <view style="max-height: 252px; overflow-y: scroll;">
+        <view class="trade-body">
+          <block wx:for="{{product[0].sku}}" wx:key="index">
+            <view class="title">{{item.title}}</view>
+            <view class="body">
+              <view class="item {{item.active ? 'on' : ' '}}" 
+                    wx:for="{{item.spec_attr}}" 
+                    wx:key="index"
+                    bindtap="handleTabSku"
+                    data-index="{{index}}" >{{item.title}}</view> 
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="trade-number">
+        <view class="label">数量</view>
+        <view class="box">
+            <text class="pull">-</text>
+            <input class="weui-input" value="{{shopNumber}}" placeholder="数量"/>
+            <text class="push">+</text>
+          </view>
+      </view>
+      <view class="trade-footer" bindtap="handleSubmit">
+        确认 
+      </view>
+    </view>
+  </zan-popup>
+</view>
