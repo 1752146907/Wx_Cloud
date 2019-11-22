@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/my/order/index",
     "pages/index/index",
     "pages/my/logistics/index",
     "pages/my/my",
@@ -8,7 +9,6 @@
     "pages/comment/comment",
     "pages/product/index",
     "pages/my/order/submit",
-    "pages/my/order/index",
     "pages/my/order/detail",
     "pages/my/address/index",
     "pages/my/address/edit",
@@ -18,7 +18,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E54847",
-    "navigationBarTitleText": "我的小程序",
+    "navigationBarTitleText": "缤纷集2号",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

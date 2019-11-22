@@ -1,1 +1,88 @@
-/* miniprogram/pages/my/order/index.wxss */
+page{
+  background: #f7f7f7;
+}
+
+.order{
+
+}
+.order .item{
+  background: #ffffff;
+  margin-top: 20rpx;
+}
+.order .item-hander{
+  display: flex;
+  color: #666666;
+  font-size: 30rpx;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f1f1f1; 
+}
+.order .item-hander .label{
+  flex: 1;
+}
+.order .item-hander .time{
+  color: #999999;
+  font-size: 24rpx;
+}
+.item-body{
+  padding: 20rpx;
+  display: flex;
+  border-bottom: 1rpx solid #f1f1f1; 
+}
+.item-body .product{
+  width: 150rpx;
+  height: 150rpx;
+}
+.info{
+  flex: 1;
+  margin-left: 20rpx;
+}
+.info-title{
+  height: 84rpx;
+  color: #333333;
+  font-size: 30rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.info .info-sku{
+  margin-top: 10rpx;
+}
+.info .info-sku text{ 
+  color: #999999;
+  display: inline-block;
+  font-size: 28rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+  border: 1px solid #f1f1f1
+}
+.item-footer{
+  display: flex;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.item-footer .sum{
+  flex: 1;
+  color: #999;
+}
+.item-footer .sum text{
+  color: #F75148;
+}
+.item-footer .bottom{
+  color: #555;
+  font-size: 28rpx;
+}
+.item-footer .bottom-cence{
+  padding: 4rpx 18rpx;
+  border-radius: 10rpx;
+  border: 1px solid #f1f1f1
+}
+.item-footer .bottom-submit{
+  color: #F75148;
+  padding: 4rpx 18rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  border: 1px solid #F75148
+}
