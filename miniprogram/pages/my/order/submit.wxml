@@ -50,7 +50,7 @@
 <!-- 提交订单 -->
 <view class="flow-footer">
   <view class="flow-footer-price">实付：<text>￥{{totalPrice}}</text></view>
-  <text class="flow-footer-money">提交订单</text>
+  <text class="flow-footer-money" bindtap="handleSubmit">提交订单</text>
 </view>
 
 

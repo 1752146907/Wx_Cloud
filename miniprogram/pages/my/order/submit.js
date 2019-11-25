@@ -72,8 +72,14 @@ Page({
   // 跳转收货地址
   handleToAddress: function () {
     wx.navigateTo({
-      url: '/pages/my/address/index'
+      url: '/pages/my/address/index?from=order'
     })
+  },
+  // 提交订单
+  handleSubmit: function () {
+    console.log(this.data.address)
+    console.log(this.data.parameter)
+    console.log(this.data.totalPrice)
   },
 
   /**
@@ -86,8 +92,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
+    
   },
 
   /**

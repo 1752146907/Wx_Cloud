@@ -2,7 +2,7 @@
 <view>
   <view class="addres">
     <view class="addres-list" wx:for="{{address}}" wx:key="item.userId">
-      <view class="addres-header">
+      <view class="addres-header" data-id="{{item._id}}" bindtap="handleSeleceAddress">
         <view class="addres-header-title">
           {{item.name}} <text>{{item.phome}}</text>
         </view>

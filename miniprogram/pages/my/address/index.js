@@ -8,7 +8,8 @@ Page({
    */
   data: {
     address: [],
-    openid: ''
+    openid: '',
+    pageFrom: ''
   },
   // 地址详情
   handleDetail: function (e) { 
@@ -86,7 +87,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      pageFrom: options.from
+    }) 
+  },
+  // 选择收货地址
+  handleSeleceAddress: function (e) {
+    if (this.data.pageFrom == 'order') {
+      this.data.address.map((data) => {
+        if (data._id == e.currentTarget.dataset.id) {
+          let pages = getCurrentPages();  // 当前页的数据，可以输出来看看有什么东西
+          let prevPage = pages[pages.length - 2];  // 上一页的数据，也可以输出来看看有什么东西
+          /** 设置数据 这里面的 address 是上一页你想被携带过去的数据 */
+          prevPage.setData({
+            address: data
+          })
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      })  
+    }
   },
   // 获取用户信息
   onGetOpenid: function () {
@@ -115,7 +136,7 @@ Page({
       success: res => {
         this.setData({
           address: res.data
-        })
+        }) 
         wx.hideLoading();
       },
       fail: err => {
@@ -174,10 +195,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  onUnload: function () {
-    wx.switchTab({
-      url: '/pages/my/my'
-    }) 
-  }
+  } 
 })
