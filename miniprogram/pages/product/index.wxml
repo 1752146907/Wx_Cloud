@@ -66,9 +66,9 @@
       <view class="trade-number">
         <view class="label">数量</view>
         <view class="box">
-            <text class="pull">-</text>
-            <input class="weui-input" value="{{shopNumber}}" placeholder="数量"/>
-            <text class="push">+</text>
+            <text class="pull" catchtap="handlePull">-</text>
+            <input class="weui-input" bindinput="onInputGoodsNum" value="{{shopNumber}}" placeholder="数量"/>
+            <text class="push" catchtap="handlePush">+</text>
           </view>
       </view>
       <view class="trade-footer" bindtap="handleSubmit">

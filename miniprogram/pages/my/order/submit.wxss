@@ -71,6 +71,8 @@ page{
   -webkit-box-orient: vertical;
 }
 .list-box .list-right-text{
+  height: 38rpx;
+  display: block;
   font-size: 28rpx;
   color: #999999;
 }

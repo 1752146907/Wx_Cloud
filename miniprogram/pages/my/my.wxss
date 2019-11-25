@@ -12,8 +12,8 @@ page{
 }
 
 .profile-img{
-  width: 200rpx;
-  height: 200rpx;
+  width: 180rpx;
+  height: 180rpx;
   display: block;
   overflow: hidden;
   border-radius: 50%;

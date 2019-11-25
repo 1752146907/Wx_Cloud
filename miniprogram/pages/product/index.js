@@ -36,8 +36,7 @@ Page({
         this.setData({
           product: res.data,
           price: res.data[0].price
-        }); 
-        console.log(this.data.product)
+        });  
       },
       fail: err => {
         wx.showToast({
@@ -63,9 +62,28 @@ Page({
     })
   },
   // 提交
-  handleSubmit: function() {
+  handleSubmit: function () { 
+    let specAttr = "";
+    // 多规格
+    if (this.data.product[0].type == '2') {
+      this.data.product[0].sku.map((data) => {
+        data.spec_attr.map((children) => {
+          if (children.active) {
+            specAttr = data.title + ':' + children.title
+          }
+        })
+      }) 
+    }
+    let parameter = {
+      image: this.data.product[0].image[0],    // 图片
+      specAttr: specAttr,                   // 规格
+      shopNumber: this.data.shopNumber,     // 数量
+      title: this.data.product[0].title,    // 标题
+      sort: this.data.product[0].sort,      // 库存
+      price: this.data.price                // 价格
+    }
     wx.navigateTo({
-      url: '/pages/my/order/submit'
+      url: '/pages/my/order/submit?parameter=' + JSON.stringify(parameter), 
     })
   },
   // 返回首页
@@ -83,6 +101,24 @@ Page({
     this.setData({
       showProductSku: !this.data.showProductSku
     })
+  },
+  // 设置数量
+  onInputGoodsNum(e) { 
+    this.setData({
+      shopNumber: e.detail.value
+    });
+  },
+  handlePull() {
+    if (this.data.shopNumber > 1) {
+      this.setData({
+        shopNumber: --this.data.shopNumber
+      });
+    }
+  },
+  handlePush() {
+    this.setData({
+      shopNumber: ++this.data.shopNumber
+    });
   },
 
   /**
