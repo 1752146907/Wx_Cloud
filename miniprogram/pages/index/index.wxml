@@ -1,6 +1,6 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view wx:for="{{productList}}" wx:key="item.id" bindtap="handleProductDetail" data-id="{{item.id}}">
   {{item.title}} 
-  ------------------------------------------------
+  <view wx:if="{{index < productList.length - 1}}">-----------------------------------------</view>
 </view> 
   
