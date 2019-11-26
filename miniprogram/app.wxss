@@ -20,3 +20,10 @@
   -webkit-line-clamp: 2;  
   -webkit-box-orient: vertical;
 }
+
+.no-more{
+  font-size: 30rpx;
+  text-align: center;
+  color: #737373;
+  padding: 10px 0; 
+}

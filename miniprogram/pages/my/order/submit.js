@@ -77,10 +77,45 @@ Page({
   },
   // 提交订单
   handleSubmit: function () {
-    console.log(this.data.address)
-    console.log(this.data.parameter)
-    console.log(this.data.totalPrice)
-  },
+    // 云数据库插入数据
+    wx.showLoading({
+      title: '加载中...',
+    })
+    let dateTime = new Date();
+    dateTime = dateTime.getTime(); 
+    
+    db.collection('orderList').add({
+      data: {
+        address: this.data.address,
+        price: this.data.totalPrice,
+        product: this.data.parameter,
+        status: 1, 
+        userId: this.data.openid,
+        dateTime: dateTime,
+        orderId: dateTime
+      }
+    }).then(res => {
+      wx.showToast({
+        title: '提交成功',
+        icon: 'success',
+        duration: 2000
+      });
+
+      setTimeout(() => {
+        wx.navigateTo({
+          url: '/pages/my/order/detail?orderId=' + dateTime
+        })
+      }, 1500)
+      // console.log(this.data.address)
+      // console.log(this.data.parameter)
+      // console.log(this.data.totalPrice)
+    }).catch(err => {
+      wx.hideLoading();
+      wx.showToast({
+        title: '订单插入失败',
+      })
+    }); 
+  }, 
 
   /**
    * 生命周期函数--监听页面初次渲染完成

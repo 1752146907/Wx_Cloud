@@ -1,18 +1,59 @@
-// miniprogram/pages/my/order/index.js
+
+const db = wx.cloud.database(); // 初始化数据库
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 0
+    active: 0,
+    listAll: [],
+    list0: [],
+    list1: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.handleLoad()
+  },
+  handleLoad: function() {
+    db.collection('orderList').where({
+      
+    }).get({
+      success: res => {
+        let list0 = [];
+        let list1 = [];
 
+        res.data.map((data) => {
+          // 已付款
+          if (data.status == 0) {
+            list0.push(data)
+          } 
+          // 未付款
+          else {
+            list1.push(data)
+          }
+        })
+        this.setData({
+          listAll: res.data,
+          list0: list0,
+          list1: list1
+        })
+        console.log(this.data.listAll)
+        console.log(this.data.list0)
+        console.log(this.data.list1)
+        wx.hideLoading();
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '获取地址失败'
+        })
+      }
+    })
   },
   // 订单详情
   handleOrder: function() {

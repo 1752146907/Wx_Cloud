@@ -1,24 +1,51 @@
 <van-tabs active="{{ active }}" animated sticky>
-  <van-tab title="已付款">
-    <view class="order" bindtap="handleOrder">
+  <van-tab title="全部">
+    <view class="order" bindtap="handleOrder" wx:for="{{listAll}}" wx:key="{{index}}">
       <view class="item">
         <view class="item-hander">
-          <view class="label">订单号：13092309203902</view>
-          <view class="time">2010-11-12 21:56:00</view>
+          <view class="label">订单号：{{item.orderId}}</view>
+          <view class="time">{{item.dateTime}}</view>
         </view>
         <view class="item-body">
-          <image class="product" src="https://test.binfenji.cn/uploads/20191119191852608af8289.png"></image>
+          <image class="product" src="{{item.product.image}}"></image>
           <view class="info">
-            <view class="info-title">这是一件商品</view>
+            <view class="info-title">{{item.product.title}}</view>
             <view class="info-sku">
-              <text>红色</text>
-              <text>紫色</text>
+              <text>{{item.product.specAttr}}</text>
             </view>
           </view>
         </view>
         <view class="item-footer">
           <view class="sum">
-            共2件，合计：<text>¥16.00</text>
+            共2件，合计：<text>¥{{item.price}}</text>
+          </view>
+          <view class="bottom">
+            <text class="bottom-cence">取消</text>
+            <text class="bottom-submit">付款</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="已付款">
+    <view class="order" bindtap="handleOrder" wx:for="{{list0}}" wx:key="{{index}}">
+      <view class="item">
+        <view class="item-hander">
+          <view class="label">订单号：{{item.orderId}}</view>
+          <view class="time">{{item.dateTime}}</view>
+        </view>
+        <view class="item-body">
+          <image class="product" src="{{item.product.image}}"></image>
+          <view class="info">
+            <view class="info-title">{{item.product.title}}</view>
+            <view class="info-sku">
+              <text>{{item.product.specAttr}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="item-footer">
+          <view class="sum">
+            共2件，合计：<text>¥{{item.price}}</text>
           </view>
           <view class="bottom">
             <text class="bottom-cence">取消</text>
@@ -29,25 +56,24 @@
     </view>
   </van-tab>
   <van-tab title="未付款">
-    <view class="order" bindtap="handleOrder">
+    <view class="order" bindtap="handleOrder" wx:for="{{list1}}" wx:key="{{index}}">
       <view class="item">
         <view class="item-hander">
-          <view class="label">订单号：13092309203902</view>
-          <view class="time">2010-11-12 21:56:00</view>
+          <view class="label">订单号：{{item.orderId}}</view>
+          <view class="time">{{item.dateTime}}</view>
         </view>
         <view class="item-body">
-          <image class="product" src="https://test.binfenji.cn/uploads/95b303342014890507a962eca0026e64.png"></image>
+          <image class="product" src="{{item.product.image}}"></image>
           <view class="info">
-            <view class="info-title">这是一件商品</view>
+            <view class="info-title">{{item.product.title}}</view>
             <view class="info-sku">
-              <text>红色</text>
-              <text>紫色</text>
+              <text>{{item.product.specAttr}}</text>
             </view>
           </view>
         </view>
         <view class="item-footer">
           <view class="sum">
-            共2件，合计：<text>¥16.00</text>
+            共2件，合计：<text>¥{{item.price}}</text>
           </view>
           <view class="bottom">
             <text class="bottom-cence">取消</text>
@@ -58,4 +84,5 @@
     </view>
   </van-tab> 
 </van-tabs>
+<view class="no-more">-- 到底了 --</view> 
  
